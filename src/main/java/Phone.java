@@ -26,7 +26,7 @@ public class Phone {
             while(!curPhoto.exists()) {
                 Runtime.getRuntime().exec(ADB_PATH
                         + " shell /system/bin/screencap -p /sdcard/screenshot.png");
-                Thread.sleep(1500);
+                Thread.sleep(1000);
                 //将截图放在电脑本地
                 Runtime.getRuntime().exec(ADB_PATH
                         + " pull /sdcard/screenshot.png " + curPhoto.getAbsolutePath());

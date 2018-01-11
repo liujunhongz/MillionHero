@@ -45,12 +45,11 @@ public class Main {
         //图像识别
         long beginOfDectect = System.currentTimeMillis();
         String questionAndAnswers = new TessOCR().getOCR(image);
-        System.out.println("识别成功：" + (System.currentTimeMillis() - beginOfDectect) / 1000.0);
+        System.out.println("识别成功：" + (System.currentTimeMillis() - beginOfDectect) / 1000.0 + "s");
         if (!questionAndAnswers.contains(QUESTION_FLAG)) {
             return;
         }
         //获取问题和答案
-        System.out.println("检测到题目");
         Information information = new Information(questionAndAnswers);
         String question = information.getQuestion();
         String[] answers = information.getAns();

@@ -19,7 +19,7 @@ public class TessOCR {
         //Set the tessdata path
         instance.setDatapath(tessDataFolder.getAbsolutePath());
         try {
-            Rectangle rectangle = new Rectangle(100, 300, 900, 900);
+            Rectangle rectangle = new Rectangle(100, 300, 910, 900);
             String ocr = instance.doOCR(imageFile, rectangle);
             return ocr.replace(" ", ".").replace(",", "");
         } catch (TesseractException | RuntimeException e) {

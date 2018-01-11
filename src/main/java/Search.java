@@ -16,6 +16,7 @@ public class Search implements Callable {
     private static final String USER_AGENT = "Mozilla/5.0";
     private final String question;
     private final String[] answers;
+    private static boolean reverseResultflag;
 
     Search(String question, String... answers) {
         this.question = question;
@@ -32,7 +33,15 @@ public class Search implements Callable {
         return 0L;
     }
 
+
     private static long search(String question, String... answers) throws IOException {
+        int reverseResultIndex = question.indexOf("不");
+        if (reverseResultIndex > 0) {
+            question = question.replace("不", "");
+            reverseResultflag = true;
+        } else {
+            reverseResultflag = false;
+        }
         String baiduPath = "http://www.baidu.com/s?tn=ichuner&lm=-1&word=" + URLEncoder.encode(question, "gb2312") + "&rn=20";
         String googlePath = "https://www.google.com.hk/search?q=" + URLEncoder.encode(question, "gb2312");
         URL url = new URL(googlePath);
@@ -65,9 +74,16 @@ public class Search implements Callable {
             for (int i = 0; i < answers.length; i++) {
                 String answer = answers[i];
                 int answerCount = indexAnswerCount(content, answer);
-                if (answerCount > resultCount) {
-                    result = i;
-                    resultCount = answerCount;
+                if (reverseResultflag) {
+                    if (answerCount < resultCount) {
+                        result = i;
+                        resultCount = answerCount;
+                    }
+                } else {
+                    if (answerCount > resultCount) {
+                        result = i;
+                        resultCount = answerCount;
+                    }
                 }
             }
             System.out.println();
@@ -106,7 +122,7 @@ public class Search implements Callable {
     }
 
     private static int indexAnswerCount(String content, String answer) {
-        long cur = System.currentTimeMillis();
+//        long cur = System.currentTimeMillis();
         int count = 0;
         if (content.length() > 0) {
             int index = content.indexOf(answer);
@@ -117,8 +133,8 @@ public class Search implements Callable {
             }
         }
         System.out.println(answer + ",出现次数为:" + count);
-        long now = System.currentTimeMillis();
-        System.out.println("索引花费时间：" + (now - cur) / 1000.0 + "s");
+//        long now = System.currentTimeMillis();
+//        System.out.println("索引花费时间：" + (now - cur) / 1000.0 + "s");
         return count;
     }
 }
