@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Class-Path: fastjson-1.2.15.jar asm-3.3.1.jar slf4j-api-1.7.20.jar com
+ mons-beanutils-1.9.2.jar ghost4j-1.0.1.jar lept4j-1.2.3.jar log4j-ove
+ r-slf4j-1.7.21.jar jul-to-slf4j-1.7.21.jar httpclient-4.2.1.jar commo
+ ns-lang-2.6.jar itext-2.1.7.jar cglib-2.2.2.jar commons-logging-1.1.1
+ .jar jetty-util-9.3.7.v20160115.jar jai-imageio-core-1.3.1.jar common
+ s-codec-1.6.jar tess4j-3.2.1.jar xmlgraphics-commons-1.4.jar logback-
+ core-1.1.7.jar commons-collections-3.2.1.jar jna-4.1.0.jar log4j-1.2.
+ 17.jar logback-classic-1.1.7.jar commons-io-2.5.jar jcl-over-slf4j-1.
+ 7.21.jar rococoa-core-0.5.jar httpcore-4.2.1.jar
+Main-Class: Main
+
