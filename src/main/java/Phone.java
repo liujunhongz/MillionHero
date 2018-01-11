@@ -12,8 +12,8 @@ public class Phone {
     /**
      * 此处应更改为自己的adb目录
      */
-    private static final String ADB_PATH = "D:\\software\\Android\\android-sdk\\platform-tools\\adb";
-    private static final String HERO_PATH = "D:\\Photo";
+    private static final String ADB_PATH = "/Users/su/Library/Android/sdk/platform-tools/adb";
+    private static final String HERO_PATH = "/Users/su/Desktop";
 
     File getImage() {
         //获取当前时间作为名字
@@ -26,7 +26,7 @@ public class Phone {
             while(!curPhoto.exists()) {
                 Runtime.getRuntime().exec(ADB_PATH
                         + " shell /system/bin/screencap -p /sdcard/screenshot.png");
-                Thread.sleep(700);
+                Thread.sleep(1500);
                 //将截图放在电脑本地
                 Runtime.getRuntime().exec(ADB_PATH
                         + " pull /sdcard/screenshot.png " + curPhoto.getAbsolutePath());

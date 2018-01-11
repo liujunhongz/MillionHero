@@ -1,3 +1,12 @@
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by 618 on 2018/1/8.
  * @author lingfengsan
@@ -42,4 +51,5 @@ public class Information {
             System.out.println(an);
         }
     }
+
 }

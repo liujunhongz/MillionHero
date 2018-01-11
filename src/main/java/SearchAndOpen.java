@@ -50,7 +50,7 @@ public class SearchAndOpen implements Callable {
             e.printStackTrace();
         }
 //        Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + path);
-        return new Search(question).search(question);
+        return new Search(question).call();
     }
 
     public static void main(String[] args) throws Exception {
